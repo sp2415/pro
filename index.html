@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Modelling Prediction</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6f61, #d9a7c7, #e5b9b9);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="number"], input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 12px 25px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #0056b3, #003d79);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Churn Modelling Prediction</h1>
+        <form method="POST">
+            <input type="number" name="CreditScore" placeholder="CreditScore" required>
+            <input type="text" name="Geography" placeholder="Geography" required>
+            <input type="text" name="Gender" placeholder="Gender" required>
+            <input type="number" name="Age" placeholder="Age" required>
+            <input type="number" name="Tenure" placeholder="Tenure" required>
+            <input type="number" name="Balance" placeholder="Balance" required>
+            <input type="number" name="NumOfProducts" placeholder="NumOfProducts" required>
+            <input type="number" name="HasCrCard" placeholder="HasCrCard" required>
+            <input type="number" name="IsActiveMember" placeholder="IsActiveMember" required>
+            <input type="number" name="EstimatedSalary" placeholder="EstimatedSalary" required>
+           
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                <strong>Prediction:</strong> {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
